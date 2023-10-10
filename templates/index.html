@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+</head>
+<body>
+    <form action="/">
+    <div id="dropdown-container">
+        <select>
+            {% for item in Testplan %}
+            <option>{{ item }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file_input">Select a file:</label>
+        <input type="file" name="file_input" id="file_input">
+        <br>
+        <label for="text_input">Give Column 1</label>
+        <input type="text" name="column 1">
+        <br>
+        <label for="text_input">Give Column 2</label>
+        <input type="text" name="column 2">
+        <br>
+        <label for="text_input">Operator</label>
+        <input type="text" name="column 2">
+        <br>
+        <label for="file_input">File path</label>
+        <input type="file" name="File path">
+        <br>
+        <label for="text_input">Testplan</label>
+        <input type="text" name="Testplan">
+        <br>
+        <div id="dropdown-container">
+            <select>
+                {% for item in Testplan %}
+                <option>{{ item }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

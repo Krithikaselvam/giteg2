@@ -1,0 +1,28 @@
+import telnetlib
+tn=telnetlib.Telnet()
+
+tn.open('172.16.29.116')
+print(tn.read_until(b'Password: '))
+tn.write(b'tekV1z10n\n')
+print(tn.read_until(b'>'))
+tn.write(b"enable\r")
+print(tn.read_until(b"Password: "))
+tn.write(b'tekV1z10n\n')
+print(tn.read_until(b'cube#').decode("ascii"))
+tn.write(b'sh ip int br\r\n')
+tn.write(b'sh ip arp\n')
+print(tn.read_until(b'#'))
+print(tn.read_until(b'#').decode("ascii"))
+#print(output1)
+#print(output2)
+#f=open(r"C:\Users\krithikaselvam\Desktop\Python\storage4.txt", 'w')
+#f.write(output1)
+#f.write(output2)
+tn.write(b'exit')  
+#f.close()
+tn.close()
+
+login = driver.find_element_by_xpath("//input").send_keys(USERNAME)
+password = driver.find_element_by_xpath("//input[@type='password']").send_keys(PASSWORD)
+submit = driver.find_element_by_xpath("//input[@value='login']").click()
+
